@@ -60,7 +60,6 @@ if (sessionStorage.getItem("word-time") !== null) {
         }
     });
 
-    // word-length sementara ditiadakan dulu
     // document.getElementById("word-length").value = sessionStorage.getItem("word-length");
     document.getElementById("word-time").options[sessionStorage.getItem("word-time")].selected = true;
 }

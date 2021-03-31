@@ -6,7 +6,7 @@
 	--tur-color: #66a61e;
 }
 
-body { /* make full-screen */
+body {
 	margin: 0;
 	padding: 0;
 }
@@ -94,15 +94,10 @@ h1, h3, h4, p, ol {
 	border-width: 5px;
 	border-style: solid;
 	border-color: black;
-	/* background diagonal */
+	/* diagonal background */
 	background-size: 8px 8px;
 	background-image: repeating-linear-gradient(135deg, black 0, black 2px, white 0, white 50%);
 }
-
-/* .multislider-container {
-	position: static;
-	width: 90vh;
-} */
 
 .multislider {
 	position: relative;
@@ -111,17 +106,16 @@ h1, h3, h4, p, ol {
 	border-width: 5px;
 	border-style: solid;
 	border-color: black;
-
 }
 
 input[type=range] {
-	/* absolute buat pepetin ke samping */
+	/* make slider go left */
 	position: absolute;
 	/* centering */
 	width: 100%;
 	top: 50%;
 	transform: translate(0%, -50%);
-	/* tampilan default di-hide biar bisa custom */
+	/* hide defaults to enable customization */
 	background: transparent;
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -129,7 +123,8 @@ input[type=range] {
 }
 
 
-input[type=range]::-webkit-slider-runnable-track { /* cross-browser compatibility */
+input[type=range]::-webkit-slider-runnable-track {
+	/* cross-browser compatibility */
 	-webkit-appearance: none;
 }
 input[type=range]::-moz-range-track {
@@ -142,7 +137,8 @@ input[type=range]::-webkit-slider-thumb {
 	border-radius: 0px;
 	background: black;
 	-webkit-appearance: none;
-	pointer-events: auto; /* re-enable thumb */
+	 /* re-enable thumb */
+	pointer-events: auto;
 }
 input[type=range]::-moz-range-thumb {
 	height: 100px;
@@ -151,8 +147,9 @@ input[type=range]::-moz-range-thumb {
 	border-radius: 0px;
 	background: black;
 	-moz-appearance: none;
-	pointer-events: auto; /* re-enable thumb */
-}
+	/* re-enable thumb */
+	pointer-events: auto;
+} 
 
 
 .blobs {
@@ -203,14 +200,14 @@ input[type=range]::-moz-range-thumb {
 	width: 75%;
 	padding: 20px;
 	box-sizing: border-box;
-	/* biar yg kiri bisa overlap */
+	/* so left border could overlap */
 	border-width: 5px;
 	border-left: 0;
 	border-style: solid;
 	border-color: black;
 }
 
-form { /* seluruh customize-menu-container basically adalah form*/
+form {
 	height: 100%;
 }
 
@@ -218,7 +215,6 @@ form { /* seluruh customize-menu-container basically adalah form*/
 	display: grid;
 	grid-template-columns: 85% 15%;
 	margin: 0 0 10px 0;
-	/* ga perlu define height karena tinggi ingridient udah ke-define dengan ukuran vh dari label*/
 }
 
 input[type=checkbox] {
@@ -315,7 +311,6 @@ input[type=text] {
 	display: flex;
 	flex-direction: row;
 	margin: 0 10px 20px 0;
-	/* ga perlu define height karena tinggi ingridient udah ke-define dengan ukuran vh dari label*/
 }
 
 input[type=button], input[type=submit] {
@@ -353,7 +348,7 @@ input[type=button]:disabled {
 	font-size: 15px;
 }
 
-select { /* style select */
+select {
 	font-family: monospace;
 	font-size: 15px;
 	border-width: 2px;
@@ -367,8 +362,8 @@ select { /* style select */
 	font-size: 15px;
 }
 
-/* result */
 
+/* result */
 .result {
 	display: flex;
 	flex-direction: column;
@@ -387,5 +382,4 @@ select { /* style select */
 	font-size: 20px;
 	font-weight: bold;
 	font-style: italic;
-	/* text-align: justify; */
 }
