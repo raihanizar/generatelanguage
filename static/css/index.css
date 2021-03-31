@@ -1,0 +1,391 @@
+:root {
+	--aus-color: #e7298a;
+	--ban-color: #d95f02;
+	--fin-color: #1b9e77;
+	--rom-color: #7570b3;
+	--tur-color: #66a61e;
+}
+
+body { /* make full-screen */
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+
+/* title */
+.title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+	background-color: black;
+	box-sizing: border-box;
+	padding: 0 20px;
+	width: 24%;
+}
+
+h1 {
+	margin: 0 0 10px 0;
+	text-align: left;
+	line-height: 90%;
+	font-weight: bold;
+	font-size: 50px;
+	color: white;
+}
+
+p#desc {
+	margin: 0 0 40px 0;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+}
+
+p#howto {
+	margin: 0;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+}
+
+li {
+    margin: 0 0 8px 0;
+	font-size: 13px;
+	color: white;
+}
+
+h3 {
+	margin: 0 0 10px 0;
+	font-size: 20px;
+}
+
+h4 {
+	font-weight: bold;
+	font-style: italic;
+	margin: 0 0 10px 0;
+}
+
+h1, h3, h4, p, ol {
+	font-family: monospace;
+}
+
+/* customize */
+.customize {
+	display: flex;
+	flex-direction: row;
+	box-sizing: border-box;
+	width: 46%;
+	background-color: white;
+}
+
+
+/* customize > customize-bar-container */
+.customize-bar-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25%;
+	box-sizing: border-box;
+	background-color: white;
+	border-width: 5px;
+	border-style: solid;
+	border-color: black;
+	/* background diagonal */
+	background-size: 8px 8px;
+	background-image: repeating-linear-gradient(135deg, black 0, black 2px, white 0, white 50%);
+}
+
+/* .multislider-container {
+	position: static;
+	width: 90vh;
+} */
+
+.multislider {
+	position: relative;
+	width: calc(100vh - 40px);
+	transform: rotate(270deg);
+	border-width: 5px;
+	border-style: solid;
+	border-color: black;
+
+}
+
+input[type=range] {
+	/* absolute buat pepetin ke samping */
+	position: absolute;
+	/* centering */
+	width: 100%;
+	top: 50%;
+	transform: translate(0%, -50%);
+	/* tampilan default di-hide biar bisa custom */
+	background: transparent;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	pointer-events: none;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track { /* cross-browser compatibility */
+	-webkit-appearance: none;
+}
+input[type=range]::-moz-range-track {
+	-moz-appearance: none;
+}
+input[type=range]::-webkit-slider-thumb {
+	height: 100px;
+	width: 5px;
+	border: 0px;
+	border-radius: 0px;
+	background: black;
+	-webkit-appearance: none;
+	pointer-events: auto; /* re-enable thumb */
+}
+input[type=range]::-moz-range-thumb {
+	height: 100px;
+	width: 5px;
+	border: 0px;
+	border-radius: 0px;
+	background: black;
+	-moz-appearance: none;
+	pointer-events: auto; /* re-enable thumb */
+}
+
+
+.blobs {
+	position: relative;
+	height: 60px;
+}
+
+.baseblob {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: white;
+}
+
+.blob {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+}
+
+
+#blob1 {
+	background-color: var(--aus-color);
+}
+#blob2 {
+	background-color: var(--ban-color);
+}
+#blob3 {
+	background-color: var(--fin-color);
+}
+#blob4 {
+	background-color: var(--rom-color);
+}
+#blob5 {
+	background-color: var(--tur-color);
+}
+
+
+/* customize > customize-menu-container */
+.customize-menu-container {
+	display: flex;
+	flex-direction: column;
+	width: 75%;
+	padding: 20px;
+	box-sizing: border-box;
+	/* biar yg kiri bisa overlap */
+	border-width: 5px;
+	border-left: 0;
+	border-style: solid;
+	border-color: black;
+}
+
+form { /* seluruh customize-menu-container basically adalah form*/
+	height: 100%;
+}
+
+.select-ingredient-cb {
+	display: grid;
+	grid-template-columns: 85% 15%;
+	margin: 0 0 10px 0;
+	/* ga perlu define height karena tinggi ingridient udah ke-define dengan ukuran vh dari label*/
+}
+
+input[type=checkbox] {
+	display: none;
+}
+
+input[type=checkbox] + label {
+	display: inline-block;
+	box-sizing: border-box;
+	width: auto;
+	padding: 0;
+	height: 100%;
+	text-align: center;
+	font-family: monospace;
+	/* dynamic font size */
+	font-size: min(5vh, 20px);
+	cursor: pointer;
+}
+
+input[type=text] {
+	border: 0;
+	padding: 0 0 0 10px;
+	font-family: monospace;
+	font-size: min(6vh, 24px);
+	font-weight: bold;
+}
+
+
+#aus-cb + label {
+	border: min(1vh, 3px) solid var(--aus-color);
+	color: var(--aus-color);
+}
+#aus-cb:checked + label {
+	background: var(--aus-color);
+	color: white;
+}
+#aus-pr {
+	color: var(--aus-color);
+}
+
+
+#ban-cb + label {
+	border: min(1vh, 3px) solid var(--ban-color);
+	color: var(--ban-color);
+}
+#ban-cb:checked + label {
+	background: var(--ban-color);
+	color: white;
+}
+#ban-pr {
+	color: var(--ban-color);
+}
+
+
+#fin-cb + label {
+	border: min(1vh, 3px) solid var(--fin-color);
+	color: var(--fin-color);
+}
+#fin-cb:checked + label {
+	background: var(--fin-color);
+	color: white;
+}
+#fin-pr {
+	color: var(--fin-color);
+}
+
+
+#rom-cb + label {
+	border: min(1vh, 3px) solid var(--rom-color);
+	color: var(--rom-color);
+}
+#rom-cb:checked + label {
+	background: var(--rom-color);
+	color: white;
+}
+#rom-pr {
+	color: var(--rom-color);
+}
+
+
+#tur-cb + label {
+	border: min(1vh, 3px) solid var(--tur-color);
+	color: var(--tur-color);
+}
+#tur-cb:checked + label {
+	background: var(--tur-color);
+	color: white;
+}
+#tur-pr {
+	color: var(--tur-color);
+}
+
+.select-ingredient-btn {
+	display: flex;
+	flex-direction: row;
+	margin: 0 10px 20px 0;
+	/* ga perlu define height karena tinggi ingridient udah ke-define dengan ukuran vh dari label*/
+}
+
+input[type=button], input[type=submit] {
+	border: none;
+	font-family: monospace;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+}
+
+input[type=button]:disabled {
+	background-color: rgb(199, 199, 199);
+	color: rgb(122, 122, 122);
+	cursor: not-allowed;
+}
+
+#equip-lang, #reset-distribution {
+	box-sizing: border-box;
+	padding: 5px 10px;
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+.setup-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.setup-container *{
+	margin: 0 0 10px 0;
+}
+
+.setup-container label {
+	font-family: monospace;
+	font-size: 15px;
+}
+
+select { /* style select */
+	font-family: monospace;
+	font-size: 15px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+}
+
+#make-word {
+	box-sizing: border-box;
+	padding: 5px 10px;
+	font-size: 15px;
+}
+
+/* result */
+
+.result {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	width: 30%;
+	padding: 20px;
+	background-color: white;
+	border: 5px solid black;
+	border-left: 0;
+}
+
+.result p {
+	font-family: monospace;
+	font-size: 20px;
+	font-weight: bold;
+	font-style: italic;
+	/* text-align: justify; */
+}

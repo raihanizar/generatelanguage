@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<title>Language Generator</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+
+	<div class="title">
+		<h1>Language Generator</h1>
+		<p id="desc">Algorithmically generate fictional language for less than 30 seconds.</p>
+		<p id="howto">How to use:</p>
+	    <ol>
+            <li><b>Select ingredient(s)</b> by clicking at the language family name (Austronesian etc.) then click <b>'Equip'</b>.</li>
+            <li>A slider will appear. You can drag each slider to configure how much a language family affects the fctional language you'll make.</li>
+            <li>Set how long you wish the algorithm takes to generate language. Even the longest still take shorter than 30 seconds.</li>
+            <li>The resulting sentence of your fictional language will appear at the rightmost section of the site.</li>
+        </ol>
+	</div>
+
+	<div class="customize">
+		<div class="customize-bar-container">
+			<div class="multislider-container">
+				<div class="multislider">
+					<input type="range" class="thumb" id="thumb1" min="0" max="100" value="0">
+					<input type="range" class="thumb" id="thumb2" min="0" max="100" value="0">
+					<input type="range" class="thumb" id="thumb3" min="0" max="100" value="0">
+					<input type="range" class="thumb" id="thumb4" min="0" max="100" value="0">
+					<input type="range" class="thumb" id="thumb5" min="0" max="100" value="0">
+
+				    <div class="blobs">
+				    	<div class="baseblob"></div>
+				    	<div class="blob" id="blob1"></div>
+					    <div class="blob" id="blob2"></div>
+					    <div class="blob" id="blob3"></div>
+					    <div class="blob" id="blob4"></div>
+					    <div class="blob" id="blob5"></div>
+				    </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="customize-menu-container">
+			<form action="/" method="POST">
+				<div class="select-ingredient-container">
+					<h3>Select Ingredient(s):</h3>
+					<div class="select-ingredient-cb">
+						<input type="checkbox" id="aus-cb" name="aus-cb"/>
+						<label for="aus-cb"><b>AUS</b>TRONESIAN</label>
+						<input type="text" class="percentage" id="aus-pr" name="aus-pr" value="0%">
+
+						<input type="checkbox" id="ban-cb" name="ban-cb"/>
+						<label for="ban-cb"><b>BAN</b>TU</label>
+						<input type="text" class="percentage" id="ban-pr" name="ban-pr" value="0%">
+
+						<input type="checkbox" id="fin-cb" name="fin-cb"/>
+						<label for="fin-cb"><b>FIN</b>NIC</label>
+						<input type="text" class="percentage" id="fin-pr" name="fin-pr" value="0%">
+
+						<input type="checkbox" id="rom-cb" name="rom-cb"/>
+						<label for="rom-cb"><b>ROM</b>ANCE</label>
+						<input type="text" class="percentage" id="rom-pr" name="rom-pr" value="0%">
+
+						<input type="checkbox" id="tur-cb" name="tur-cb"/>
+						<label for="tur-cb"><b>TUR</b>KIC</label>
+						<input type="text" class="percentage" id="tur-pr" name="tur-pr" value="0%">
+					</div>
+					<h4>more language families soon...</h4>
+					<div class="select-ingredient-btn">
+						<input type="button" id="equip-lang" value="Equip">
+						<input type="button" id="reset-distribution" value="Make Distribution Equal">
+					</div>
+				</div>
+
+				<div class="setup-container">
+					<h3>Setup:</h3>
+					<label for="word-time">Time for the algorithm to create language. (Longer time often lead to better result.)</label>
+					<select class="setup" id="word-time" name="word-time">
+						<option value="quick">Quick</option>
+						<option selected value="normal">Normal</option>
+						<option value="long">Long</option>
+						<option value="longer">Longer</option>
+					</select>
+					<h4>more setups to fiddle soon...</h4>
+					<input type="submit" id="make-word" value="Generate Language!">
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="result">
+		<p>{{sentence}}</p>
+	</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+{% endblock %}
